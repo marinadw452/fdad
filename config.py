@@ -4,11 +4,7 @@ import os
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 # ==================== إعدادات قاعدة البيانات ====================
-PG_HOST = os.getenv('PG_HOST')
-PG_PORT = os.getenv('PG_PORT')
-PG_DB = os.getenv('PG_DB')
-PG_USER = os.getenv('PG_USER')
-PG_PASSWORD = os.getenv('PG_PASSWORD')
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # ==================== إعدادات المحل ====================
 SHOP_NAME = os.getenv('SHOP_NAME')  # مثال: "محل فخامة بسبوستي"

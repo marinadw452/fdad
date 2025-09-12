@@ -1,3 +1,4 @@
+import os
 import asyncio
 import json
 import psycopg2
@@ -7,16 +8,14 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
-from config import BOT_TOKEN, PG_DB, PG_USER, PG_PASSWORD, PG_HOST, PG_PORT, SHOP_WHATSAPP
+from config import BOT_TOKEN, SHOP_WHATSAPP  # حذفنا متغيرات PostgreSQL لأنها صارت من البيئة
 
 # ================== قاعدة البيانات ==================
+DATABASE_URL = os.getenv("DATABASE_URL")  # ناخذ الرابط من البيئة
+
 def get_conn():
     return psycopg2.connect(
-        dbname=PG_DB,
-        user=PG_USER,
-        password=PG_PASSWORD,
-        host=PG_HOST,
-        port=PG_PORT,
+        DATABASE_URL,
         cursor_factory=psycopg2.extras.RealDictCursor
     )
 

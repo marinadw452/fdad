@@ -594,4 +594,7 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        logger.info
+        logger.info("تم إيقاف البوت بواسطة المستخدم")
+    except Exception as e:
+        logger.error(f"خطأ في تشغيل البوت: {e}")
+        exit(1)
